@@ -1,0 +1,97 @@
+#content_home{
+    position:relative;
+    .section_container{
+        .bloc_container{
+            .bloc{
+                display: inline-block;
+                vertical-align: top;
+                width: 440px;
+                padding: 15px;
+                background: #f3f3f3;
+                min-height: 234px;
+                margin: 8px;
+                .info_bloc{
+                    font-size: 22px;
+                    line-height: 1.8;
+                    .input_zone{
+                        top:0px;
+                        input{
+                            border: none;
+                            height: 27px;
+                            border-bottom: 1px solid grey;
+                            background: #f3f3f3;
+                            width: 206px;
+                            padding-left: 15px;
+                            color:#3b73b9;
+                            font-size: 22px;
+                            font-family:inspira;
+                            &.inp1{
+                                margin-left: 50px;
+                            }
+                            &.inp2{
+                                margin-left: 16px;
+                            }
+                            &.inp3{
+                                margin-left: 3px;
+                            }
+                        }
+                    }
+                }
+                .photo_tsui{
+                    width: 100%;
+                    height: auto;
+                }
+                
+            }
+        }
+    }
+}
+
+#content_homeE{
+    position:relative;
+    .section_container{
+        .bloc_container{
+            .bloc{
+                display: inline-block;
+                vertical-align: top;
+                width: 440px;
+                padding: 15px;
+                background: #f3f3f3;
+                min-height: 234px;
+                margin: 8px;
+                .info_bloc{
+                    font-size: 22px;
+                    line-height: 1.8;
+                    .input_zone{
+                        top:0px;
+                        input{
+                            border: none;
+                            height: 27px;
+                            border-bottom: 1px solid grey;
+                            background: #f3f3f3;
+                            width: 206px;
+                            padding-left: 15px;
+                            color:#3b73b9;
+                            font-size: 22px;
+                            font-family:inspira;
+                            &.inp1{
+                                margin-left: 50px;
+                            }
+                            &.inp2{
+                                margin-left: 16px;
+                            }
+                            &.inp3{
+                                margin-left: 3px;
+                            }
+                        }
+                    }
+                }
+                .photo_tsui{
+                    width: 100%;
+                    height: auto;
+                }
+                
+            }
+        }
+    }
+}

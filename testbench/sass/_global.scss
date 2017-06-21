@@ -1,0 +1,110 @@
+@font-face {
+  font-family: "inspira";
+  src: url("font/GEInspira.woff");
+}
+
+body{
+    background:white;   
+    margin: 0;
+    font-family:inspira;
+}
+
+.page_content{
+    display:none;
+    &.active{
+        display:block;
+    }
+}
+
+#main_container{
+    width:1000px;
+    margin-left:auto;
+    margin-right:auto;
+    min-height: 774px;
+    padding-top: 50px;
+}
+
+.title_main{
+    color: #3b73b9;
+    font-weight: bold;
+    text-align: center;
+    font-size: 40px;
+    margin-bottom: 40px;
+}
+.title_bloc{
+    color: #3b73b9;
+    text-align: center;
+    font-size: 25px;
+    margin-bottom: 13px;
+}
+
+.blue{
+    color:#3b73b9;
+}
+.bouton{
+    color: white;
+    border-radius: 5px;
+    box-shadow: 3px 3px 3px black;
+    background: #3b73b9;
+    cursor: pointer;
+    position: relative;
+    margin-bottom: 10px;
+    &:last-child{
+        margin-bottom:0px;
+    }
+    &:hover{
+        background:#3895d2;
+        box-shadow: 3px 3px 3px grey;
+    }
+    .text{
+        position: absolute;
+        top: 14px;
+        font-size: 32px;
+        left: 118px;
+    }
+    .circle{
+        margin-left: 25px;
+        margin-top: 7px;    
+        width: 54px;
+        
+    }
+}
+
+.bouton_grey{
+    box-shadow: 3px 3px 3px black;
+    background: #3b73b9;   
+    margin-left: auto;
+    margin-right: auto;
+    width: 100px;
+    height: 37px;
+    text-align: center;
+    color: white;
+    border-radius: 5px;
+    font-size: 22px;
+    padding-top: 6px;
+    margin-top: 21px;
+    cursor: pointer;
+    &:hover{
+        background:#3895d2;
+        box-shadow: 3px 3px 3px grey;
+    }
+}
+
+.listing_bloc{
+    background:#f3f3f3;
+    text-align:center;
+    margin-bottom:30px;
+    .liste{
+        display: inline-block;
+        vertical-align: top;
+        text-align: left;
+        width: 30%;
+        margin: 5px;
+        font-size: 19px;
+        padding: 5px;
+        line-height: 1.6;
+    }
+}
+.hidden{
+    display:none !important;
+}

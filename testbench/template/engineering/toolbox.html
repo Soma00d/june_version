@@ -1,0 +1,76 @@
+<div class="section_container">
+    <div class="title title_main">Toolbox</div>
+    
+    <p>
+        <button id="dialog-link-spybox" class="ui-button ui-corner-all ui-widget">
+            Open SpyBox
+        </button>
+    
+        <button id="dialog-link-sender" class="ui-button ui-corner-all ui-widget">
+            Open Sender Box
+        </button>
+        
+    </p>
+    
+
+    <!-- ui-dialog spybox -->
+    <div id="dialog-spybox" title="Spy Box">
+        <div class="option_line">
+            <button class="spy_stop">Pause</button>
+            <button class="spy_play">Play</button>
+            <button class="spy_clear">Clear</button>
+        </div>
+        <div class="filter_panel">
+            <span class="text">Filter by CAN ID : </span><input class="filter_canid" type="text" value="" placeholder="000001ad" /><div class="is_different_canid"><img src="images/warning-sign.png"></div><br>
+            <span class="text">Filter by CAN DATA : </span><input class="filter_candata" type="text" value="" placeholder="000000000000" /><div class="is_different_candata"><img src="images/warning-sign.png"></div><br>
+            <div class="bt_filter">
+                <button class="launch_filter"><img src="images/check_green.png"></button>
+            </div>
+            <div class="recap_filter"></div>
+        </div>
+        <div class="head_line">
+            <span class="canid_head">CAN ID</span>
+            <span class="candata_head">CAN DATA</span>
+            <span class="number_head">NUMBER</span>
+            <span class="ts_head">TIMESTAMP</span>
+        </div>
+        <div class="content_line"></div>
+    </div>
+    <div id="dialog-sender" title="Sender Box">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    </div>
+
+</div>
+
+
+<script>
+
+$( "#dialog-spybox" ).dialog({
+    autoOpen: false,
+    width: 500,
+    resizable:true,
+    dialogClass: 'success-dialog'
+});
+$( "#dialog-sender" ).dialog({
+    autoOpen: false,
+    width: 400,
+    resizable:true,
+    dialogClass: 'success-dialog'
+});
+
+// Link to open the dialog
+$( "#dialog-link-spybox" ).click(function( event ) {
+	$( "#dialog-spybox" ).dialog( "open" );
+	$( "#dialog-spybox" ).addClass( "open" );
+	event.preventDefault();
+});
+$(".success-dialog .ui-dialog-titlebar-close").click(function() {
+    $( "#dialog-spybox" ).removeClass( "open" );
+});
+
+$( "#dialog-link-sender" ).click(function( event ) {
+	$( "#dialog-sender" ).dialog( "open" );
+	event.preventDefault();
+});
+
+</script>

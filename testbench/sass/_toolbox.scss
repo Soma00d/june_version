@@ -1,0 +1,155 @@
+.ui-dialog-titlebar-close{
+    position: absolute;
+    right: -25px;
+    top: -10px;
+    border: 2px solid red;
+    background: red;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.ui-dialog.success-dialog {
+    border: 2px solid #3b73b9;
+    border-radius: 5px;
+    padding: 15px;
+    background: #f5f5f5;
+}
+
+.ui-dialog-titlebar{
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    background: #3b73b9;
+    cursor: pointer;
+    border-radius: 5px;
+    padding-top: 3px;
+    padding-bottom: 6px;
+    color:white;
+}
+
+#dialog-spybox{
+    
+}
+
+#dialog-spybox{
+    
+    .option_line{        
+        margin-top: 5px;
+        padding: 2px;
+        text-align: center;
+        button{
+            width: 70px;
+            border-radius: 5px;
+            margin: 3px;
+            cursor: pointer;
+        }
+    }
+    .filter_panel{
+        background: #d2d2e2;
+        padding: 8px;
+        margin-top: 5px;
+        border-radius: 5px;
+        margin-bottom: 10px;
+        position:relative;
+        .recap_filter{
+            font-weight: bold;
+            margin-top: 6px;
+            text-align: center;
+        }
+        .is_different_canid{
+            display: inline-block;
+            vertical-align: middle;
+            width: 22px;
+            padding: 1px;
+            cursor: pointer;
+            margin-left: 8px;
+            img{
+                width:100%;
+                height:auto;
+            }
+            &.activated{
+                border:2px solid red;
+                border-radius:5px;
+            }
+        }
+        .is_different_candata{
+            display: inline-block;
+            vertical-align: middle;
+            width: 22px;
+            padding: 1px;
+            cursor: pointer;
+            margin-left: 8px;
+            img{
+                width:100%;
+                height:auto;
+            }
+            &.activated{
+                border:2px solid red;
+                border-radius:5px;
+            }
+        }
+        .bt_filter{
+            position: absolute;
+            top: 18px;
+            right: 3px;
+        }
+        button{
+            width: 32px;
+            border-radius: 5px;
+            margin: 0px;
+            cursor: pointer;
+            img{
+                width:100%;
+                height:auto;
+            }
+        }
+        .text{
+            width: 150px;
+            display: inline-block;
+            vertical-align: middle;
+        }
+    }
+    .head_line{
+        border-bottom: 1px solid black;
+        margin-top: 8px;
+        height: 25px;
+        font-weight: bold;
+        span{
+            display:inline-block;
+            vertical-align:top;
+            margin: 2px;
+        }
+        .canid_head{
+            width:100px;
+            color:orangered;
+        }
+        .candata_head{
+            width:150px;
+            color:green;
+        }
+        .number_head{
+            width:80px;
+        }
+    }
+    .content_line{
+        margin-top:10px;
+        height: 200px;
+        overflow-y: scroll;
+        span{
+            display: inline-block;
+            vertical-align: top;
+            margin:2px;
+        }
+        .can_id_spy{
+            width: 100px;
+        }
+        .can_data_spy{
+            width: 150px;
+        }
+        .nb{
+            width:80px;
+        }
+    }
+}
