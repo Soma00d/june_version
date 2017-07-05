@@ -153,3 +153,45 @@
         }
     }
 }
+
+#dialog-sender{
+    .red{
+            color:red;
+        }
+        .green{
+            color:green;
+        }
+        .blue{
+            color:blue;
+        }
+    .presentation_sender{
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+    .text_sender{
+        width: 82px;
+        display: inline-block;
+        vertical-align:middle;
+    }
+    .input_bloc_sender{
+        margin-bottom: 15px;        
+    }
+    .error_sender{
+        margin-top: 15px;
+        font-weight: bold;
+        color: red;
+    }
+    .result_sender{
+        margin-top:15px;
+        
+    }
+    .length_msg{
+        margin-bottom: 15px;
+    }
+    .text_ref{
+        display: inline-block;
+        vertical-align: middle;
+        width: 82px;
+    }
+    
+}

@@ -36,8 +36,26 @@
         </div>
         <div class="content_line"></div>
     </div>
+    
+     <!-- ui-dialog sender -->
     <div id="dialog-sender" title="Sender Box">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        <button class="add_zero">Add zero</button>
+        <div class="presentation_sender">Type message to send :</div>
+        <div class="input_bloc_sender">
+            <div><span class="text_sender red">DLC : </span><input type="text" class="candlc_sender" value="" placeholder="08" /></div>
+            <div><span class="text_sender green">CAN ID : </span><input type="text" class="canid_sender" value="" placeholder="000001ad" /></div>
+            <div><span class="text_sender blue">CAN DATA : </span><input type="text" class="candata_sender" value="" placeholder="000000000000" /></div>
+        </div>
+        <div><button class="sender_test">Preview</button></div>
+        <div class="error_sender hidden"></div>
+        <div class="result_sender hidden">
+            <div class="reference_sender">
+                <span class="text_ref">Reference : </span><span class='red'>08</span> <span class='green'>00000228</span> <span class='blue'>01900d2500000000</span>
+            </div>
+            <div class="sender_msg"></div>
+            <div class="length_msg"></div>
+            <div><button class="sender_final">Send !</button></div>
+        </div>
     </div>
 
 </div>

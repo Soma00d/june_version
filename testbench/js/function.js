@@ -61,6 +61,12 @@ $(document).ready(function(){
     
     var _MODE = "PRETEST";
     
+    
+    
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////// HOMEPAGE REPAIR  /////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    
     //recupération des infos tsui homepage
     $("#send_info_hp").on('click', function(){
         userSSO = ($("#user_sso_input").val());
@@ -163,6 +169,15 @@ $(document).ready(function(){
         }        
     }); 
     
+    
+    
+    
+    
+    
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////// HOMEPAGE ENGINEERING  ////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    
     //recupération des infos tsui homepage INGE
     $("#send_info_hp_E").on('click', function(){
         userSSO = ($("#user_sso_input_E").val());
@@ -216,20 +231,14 @@ $(document).ready(function(){
         }        
     }); 
     
-    //Click on launch final test button
-    $(".launch_final").on('click', function(){
-        launchFinalTest();
-    });
     
-    //valider manuellement l'étape (dev only)
-    $("#next_final_test").on('click', function(){
-        nextStepFinal("ok");
-    });
     
-    //interrompre manuellement le test final
-    $("#stop_final_test").on('click', function(){
-        stopFinalTest("interrupted");
-    });
+    
+    
+    
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////// ON MESSAGE WEBSOCKET  ////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
    
    //Traitement des données websocket 
     ws.onmessage=function(event) {
@@ -392,10 +401,14 @@ $(document).ready(function(){
         
     };
     
-    $(".toolbox").on('click', function(){
-        _MODE = "TOOLBOX";
-        alert("mode toolbox activated");
-    });
+      
+    
+    
+    
+    
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////// SPY BOX        ///////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
     
     function sendToSpy(canId, canData){
         var d = spyBox.get(0);
@@ -434,9 +447,8 @@ $(document).ready(function(){
         }else{
             $(this).addClass("activated");
         }
-    });
-    
-     $("#dialog-spybox .launch_filter").on('click',function(){
+    });    
+    $("#dialog-spybox .launch_filter").on('click',function(){
        var inputCanid =  $(".filter_canid").val();
        var inputCandata =  $(".filter_candata").val();
        operatorID = "==";
@@ -473,6 +485,72 @@ $(document).ready(function(){
     });
     
     
+    
+    
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////// SENDER BOX        ////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
+    
+    $("#dialog-sender .sender_test").on('click',function(){        
+        getPreviewValues();
+    });
+    
+    $("#dialog-sender .add_zero").on('click',function(){        
+        adjustCanMessage();
+    });
+    
+    function addZeroBefore(n, width, z) {
+        z = z || '0';
+        n = n + '';
+        return n.length >= width ? n : new Array(width - n.length + 1).join(z) + n;
+    }
+    function addZeroAfter(n, width, z) {
+        z = z || '0';
+        n = n + '';
+        return n.length >= width ? n : n + new Array(width - n.length + 1).join(z);
+    }
+    
+    function adjustCanMessage(){
+        var dlcInputSender = $("#dialog-sender .candlc_sender").val().trim();
+        var idInputSender = $("#dialog-sender .canid_sender").val().trim();
+        var dataInputSender = $("#dialog-sender .candata_sender").val().trim();
+        
+        dlcInputSender = addZeroBefore(dlcInputSender, 2);
+        idInputSender = addZeroBefore(idInputSender, 8);
+        dataInputSender = addZeroAfter(dataInputSender, 16);
+        
+        $("#dialog-sender .candlc_sender").val(dlcInputSender);
+        $("#dialog-sender .canid_sender").val(idInputSender);
+        $("#dialog-sender .candata_sender").val(dataInputSender);
+    }
+    
+    function getPreviewValues(){
+        var dlcInputSender = $("#dialog-sender .candlc_sender").val().trim();
+        var idInputSender = $("#dialog-sender .canid_sender").val().trim();
+        var dataInputSender = $("#dialog-sender .candata_sender").val().trim();
+        
+        if(dlcInputSender.length == 0 && idInputSender.length == 0 && dataInputSender.length == 0 ){
+            $("#dialog-sender .error_sender").html("Fields are empty.");
+            $("#dialog-sender .error_sender").removeClass("hidden");
+            $("#dialog-sender .result_sender").addClass("hidden");
+        }else{
+            $("#dialog-sender .error_sender").addClass("hidden");            
+            displayPreviewValues(dlcInputSender, idInputSender, dataInputSender);
+        }
+    }
+    
+    function displayPreviewValues(dlcInputSender, idInputSender, dataInputSender){
+        $("#dialog-sender .result_sender").removeClass("hidden");
+        $("#dialog-sender .result_sender .sender_msg").html("<span class='text_ref'>Message : </span><span class='red'>"+dlcInputSender+"</span> <span class='green'>"+idInputSender+"</span> <span class='blue'>"+dataInputSender+"</span>");
+        $("#dialog-sender .result_sender .length_msg").html("<span class='text_ref'>Length : </span><span class='red'>"+dlcInputSender.length+"/2</span> <span class='green'>"+idInputSender.length+"/8</span> <span class='blue'>"+dataInputSender.length+"/16</span>");
+    }
+    
+    
+    
+    
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////// DIAG PRINT LOG ///////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
     
     //Generation du tableau de log qui sera ensuite save en base de donnée
     function generateJsonLog(){
@@ -599,6 +677,29 @@ $(document).ready(function(){
         myWindow.print();
         myWindow.close();
     };
+    
+    
+    
+    
+    
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////// FINAL   TEST /////////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////    
+    
+     //Click on launch final test button
+    $(".launch_final").on('click', function(){
+        launchFinalTest();
+    });
+    
+    //valider manuellement l'étape (dev only)
+    $("#next_final_test").on('click', function(){
+        nextStepFinal("ok");
+    });
+    
+    //interrompre manuellement le test final
+    $("#stop_final_test").on('click', function(){
+        stopFinalTest("interrupted");
+    });
     
     //recuperation des entrées du test final dans le dictionnaire associé
     function getFinalTest(){
@@ -730,6 +831,13 @@ $(document).ready(function(){
     }
     
     
+    
+    
+    
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////// ON CLICK FUNCTION ////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    
     //différentes fonctions d'envoi de signaux au tsui
     $("#start_node").on('click', function(){sendSignal("002400806d68d7551407f09b861e3aad000549a84402000000000000012D000000000000");});    
     $("#stop_node").on('click', function(){sendSignal("002400806d68d7551407f09b861e3aad000549a84402000000000000022D000000000000");});
@@ -737,6 +845,18 @@ $(document).ready(function(){
     $("#stop_led").on('click', function(){sendSignal("002400806d68d7551407f09b861e3aad000549a844080000000003280000000000000000");});
     $("#record_log").on('click', function(){generateJsonLog();});
     $("#print_log").on('click', function(){printJsonLog(jsonLog);});
+    
+    
+    $(".toolbox").on('click', function(){
+        _MODE = "TOOLBOX";
+        alert("mode toolbox activated");
+    });
+    
+    
+    
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////// SEND SIGNAL TO DRIVER ////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////    
     
     function sendSignal(signal){        
         var jsonData = '{"type":"signal", "msg":"'+signal+'"}';

@@ -848,6 +848,54 @@ and open the template in the editor.
   width: 80px;
 }
 
+/* line 158, ../sass/_toolbox.scss */
+#dialog-sender .red {
+  color: red;
+}
+/* line 161, ../sass/_toolbox.scss */
+#dialog-sender .green {
+  color: green;
+}
+/* line 164, ../sass/_toolbox.scss */
+#dialog-sender .blue {
+  color: blue;
+}
+/* line 167, ../sass/_toolbox.scss */
+#dialog-sender .presentation_sender {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+/* line 171, ../sass/_toolbox.scss */
+#dialog-sender .text_sender {
+  width: 82px;
+  display: inline-block;
+  vertical-align: middle;
+}
+/* line 176, ../sass/_toolbox.scss */
+#dialog-sender .input_bloc_sender {
+  margin-bottom: 15px;
+}
+/* line 179, ../sass/_toolbox.scss */
+#dialog-sender .error_sender {
+  margin-top: 15px;
+  font-weight: bold;
+  color: red;
+}
+/* line 184, ../sass/_toolbox.scss */
+#dialog-sender .result_sender {
+  margin-top: 15px;
+}
+/* line 188, ../sass/_toolbox.scss */
+#dialog-sender .length_msg {
+  margin-bottom: 15px;
+}
+/* line 191, ../sass/_toolbox.scss */
+#dialog-sender .text_ref {
+  display: inline-block;
+  vertical-align: middle;
+  width: 82px;
+}
+
 @font-face {
   font-family: "inspira";
   src: url("font/GEInspira.woff");
