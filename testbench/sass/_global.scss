@@ -49,6 +49,13 @@ body{
     cursor: pointer;
     position: relative;
     margin-bottom: 10px;
+    &.role_chose{
+        display: inline-block;
+        width: 306px;
+        height: 66px;
+        text-align:left;
+        margin:15px;
+    }
     &:last-child{
         margin-bottom:0px;
     }
@@ -107,4 +114,8 @@ body{
 }
 .hidden{
     display:none !important;
+}
+
+.block_role{
+    text-align:center;
 }

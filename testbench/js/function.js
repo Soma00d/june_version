@@ -7,10 +7,22 @@ $(document).ready(function(){
     var lineContainer = $("#content_pretest .line_container");
     var testPoppin = $("#content_pretest .test_poppin");
     var canvasJauge = $(".canvas_jauge");
+    
     var joystickTop = $("#jauge_joystick_vertical_top .jauge_remplissage");
     var joystickBot = $("#jauge_joystick_vertical_bot .jauge_remplissage");
     var joystickLeft = $("#jauge_joystick_horizontal_left .jauge_remplissage");
     var joystickRight = $("#jauge_joystick_horizontal_right .jauge_remplissage");
+    
+    var joystickTop2 = $("#jauge_joystick_vertical_top_2 .jauge_remplissage");
+    var joystickBot2 = $("#jauge_joystick_vertical_bot_2 .jauge_remplissage");
+    var joystickLeft2 = $("#jauge_joystick_horizontal_left_2 .jauge_remplissage");
+    var joystickRight2 = $("#jauge_joystick_horizontal_right_2 .jauge_remplissage");
+    
+    var joystickTop3 = $("#jauge_joystick_vertical_top_3 .jauge_remplissage");
+    var joystickBot3 = $("#jauge_joystick_vertical_bot_3 .jauge_remplissage");
+    var joystickLeft3 = $("#jauge_joystick_horizontal_left_3 .jauge_remplissage");
+    var joystickRight3 = $("#jauge_joystick_horizontal_right_3 .jauge_remplissage");
+    
     //------//    
     var userSSO = "";
     var partNumber = "";
@@ -18,6 +30,8 @@ $(document).ready(function(){
     var family_id;
     var sequences = "";
     var familyName = "";
+    var familyChoice = "";
+    var modelChoice = "";
     
    //Definition des variables globales pour le test final    
     var nameFinalContainer = $("#testfinal_container .name_test_container");
@@ -56,6 +70,10 @@ $(document).ready(function(){
     var isFilter;
     var filterID;
     var filterData;
+    
+    var calibrateBt1 = $(".calibrate_bt_1");
+    var calibrateBt2 = $(".calibrate_bt_2");
+    var calibrateBt3 = $(".calibrate_bt_3");
     
     //-----------------------------------------------------//
     
@@ -181,16 +199,16 @@ $(document).ready(function(){
     //recupération des infos tsui homepage INGE
     $("#send_info_hp_E").on('click', function(){
         userSSO = ($("#user_sso_input_E").val());
-        partNumber = ($("#part_number_input_E").val());
-        serialNumber = ($("#serial_number_input_E").val());        
-        if(userSSO !== "" && partNumber !== "" && serialNumber !== ""){
+        familyChoice = ($("#family_choice").html());
+        modelChoice = ($("#model_choice").html());        
+        if(userSSO !== "" && familyChoice !== "" && modelChoice !== ""){            
             $.ajax({
-            url : 'php/api.php?function=get_tsui&param1='+partNumber,
+            url : 'php/api.php?function=get_tsui&param1='+familyChoice,
             type : 'GET',
             dataType : 'JSON',
             success: function(data, statut){
                 if(data.length == 0){
-                    alert("No result found with this part number.")
+                    alert("No result found with this part number."+familyChoice)
                 }else{
                     familyName = data[0].name;
                     var photo = data[0].photo_link;
@@ -284,6 +302,16 @@ $(document).ready(function(){
                                     joystickTop.css('height', "100%");
                                     joystickLeft.css('width', "100%");
                                     joystickRight.css('width', "0%");
+                                    
+                                    joystickBot2.css('height', '0%');
+                                    joystickTop2.css('height', "100%");
+                                    joystickLeft2.css('width', "100%");
+                                    joystickRight2.css('width', "0%");
+                                    
+                                    joystickBot3.css('height', '0%');
+                                    joystickTop3.css('height', "100%");
+                                    joystickLeft3.css('width', "100%");
+                                    joystickRight3.css('width', "0%");
                                 }
                                 var joy1_horizontal = canData.substring(0,2);
                                 var joy1_vertical = canData.substring(2,4);
@@ -293,7 +321,6 @@ $(document).ready(function(){
                                 var joy3_vertical = canData.substring(10,12);
                                 
                                 if(joy1_vertical !== '00' || joy1_horizontal !== '00'){
-                                    $(".intitule span").html("JOYSTICK 1");
                                     canvasJauge.removeClass("zero_state");
                                     if(joy1_vertical !== '00'){
                                         joy1_vertical = convertHexa(joy1_vertical);
@@ -314,43 +341,41 @@ $(document).ready(function(){
                                 }
                                 
                                 if(joy2_vertical !== '00' || joy2_horizontal !== '00'){
-                                    $(".intitule span").html("JOYSTICK 2");
                                     canvasJauge.removeClass("zero_state");
                                     if(joy2_vertical !== '00'){
                                         joy2_vertical = convertHexa(joy2_vertical);
                                         if(joy2_vertical<0){
-                                            joystickBot.css('height', (joy2_vertical*-1)+"%");                                 
+                                            joystickBot2.css('height', (joy2_vertical*-1)+"%");                                 
                                         }else{
-                                            joystickTop.css('height', (100-joy2_vertical)+"%");
+                                            joystickTop2.css('height', (100-joy2_vertical)+"%");
                                         }
                                     }
                                     else{
                                         joy2_horizontal = convertHexa(joy2_horizontal);
                                         if(joy2_horizontal<0){
-                                            joystickLeft.css('width', (100+joy2_horizontal)+"%");
+                                            joystickLeft2.css('width', (100+joy2_horizontal)+"%");
                                         }else{
-                                            joystickRight.css('width', joy2_horizontal+"%");
+                                            joystickRight2.css('width', joy2_horizontal+"%");
                                         }
                                     }
                                 }
                                 
                                 if(joy3_vertical !== '00' || joy3_horizontal !== '00'){
-                                    $(".intitule span").html("JOYSTICK 3");
                                     canvasJauge.removeClass("zero_state");
                                     if(joy3_vertical !== '00'){
                                         joy3_vertical = convertHexa(joy3_vertical);
                                         if(joy3_vertical<0){
-                                            joystickBot.css('height', (joy3_vertical*-1)+"%");                                 
+                                            joystickBot3.css('height', (joy3_vertical*-1)+"%");                                 
                                         }else{
-                                            joystickTop.css('height', (100-joy3_vertical)+"%");
+                                            joystickTop3.css('height', (100-joy3_vertical)+"%");
                                         }
                                     }
                                     else{
                                         joy3_horizontal = convertHexa(joy3_horizontal);
                                         if(joy3_horizontal<0){
-                                            joystickLeft.css('width', (100+joy3_horizontal)+"%");
+                                            joystickLeft3.css('width', (100+joy3_horizontal)+"%");
                                         }else{
-                                            joystickRight.css('width', joy3_horizontal+"%");
+                                            joystickRight3.css('width', joy3_horizontal+"%");
                                         }
                                     }
                                 }                      
@@ -834,6 +859,94 @@ $(document).ready(function(){
     
     
     
+    
+    
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////// CALIBRATION //////////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    
+    calibrateBt1.find("button").on('click', function(){
+        calibrateBt1.find(".calibrate_tool").removeClass("hidden");
+        calibrateStepOne("1");
+        $(this).addClass("hidden");
+    });    
+    calibrateBt2.find("button").on('click', function(){
+        calibrateBt2.find(".calibrate_tool").removeClass("hidden");
+        calibrateStepOne("2");
+        $(this).addClass("hidden");
+    });    
+    calibrateBt3.find("button").on('click', function(){
+        calibrateBt3.find(".calibrate_tool").removeClass("hidden");
+        calibrateStepOne("3");
+        $(this).addClass("hidden");
+    });    
+    
+    
+    function calibrateStepOne(identifier){
+        $(".calibrate_bt_"+identifier).find(".status_calib").html("Axis Raw acquisition ZERO");
+        $(".calibrate_bt_"+identifier).find(".action_calib").html("Be sure joystick "+identifier+" is on position zero then click.");
+        $(".calibrate_bt_"+identifier).find(".validate_calib").on('click', function(){
+            alert("send signal acquisition ZERO");
+            sendSignal("");
+            calibrateStepTwo(identifier);
+        });
+    }
+    function calibrateStepTwo(identifier){
+        $(".calibrate_bt_"+identifier).find(".validate_calib").off();
+        $(".calibrate_bt_"+identifier).find(".status_calib").html("Null Diff Storing");
+        $(".calibrate_bt_"+identifier).find(".action_calib").html("Store the value.");
+        $(".calibrate_bt_"+identifier).find(".validate_calib").on('click', function(){
+            alert("send signal store nulldiff");
+            sendSignal("");
+            calibrateStepThree(identifier);
+        });
+    }
+    function calibrateStepThree(identifier){
+        $(".calibrate_bt_"+identifier).find(".validate_calib").off();
+        $(".calibrate_bt_"+identifier).find(".status_calib").html("Axis Raw acquisition max");
+        $(".calibrate_bt_"+identifier).find(".action_calib").html("Press joystick "+identifier+" at maximum left position then click.");
+        $(".calibrate_bt_"+identifier).find(".validate_calib").on('click', function(){
+            alert("send signal max axis acqusition");
+            sendSignal("");
+            calibrateStepFour(identifier);
+        });
+    }
+    function calibrateStepFour(identifier){
+        $(".calibrate_bt_"+identifier).find(".validate_calib").off();
+        $(".calibrate_bt_"+identifier).find(".status_calib").html("Max Diff Storing");
+        $(".calibrate_bt_"+identifier).find(".action_calib").html("Store the max value.");
+        $(".calibrate_bt_"+identifier).find(".validate_calib").on('click', function(){
+            alert("send signal store max diff");
+            sendSignal("");
+            calibrateStepFive(identifier);
+        });
+    }
+    function calibrateStepFive(identifier){
+        $(".calibrate_bt_"+identifier).find(".validate_calib").off();
+        $(".calibrate_bt_"+identifier).find(".status_calib").html("Axis Raw acquisition min");
+        $(".calibrate_bt_"+identifier).find(".action_calib").html("Press joystick "+identifier+" at maximum right position then click.");
+        $(".calibrate_bt_"+identifier).find(".validate_calib").on('click', function(){
+            alert("send signal min axis acqusition");
+            sendSignal("");
+            calibrateStepSix(identifier);
+        });
+    }
+    function calibrateStepSix(identifier){
+        $(".calibrate_bt_"+identifier).find(".validate_calib").off();
+        $(".calibrate_bt_"+identifier).find(".status_calib").html("Lock calibration");
+        $(".calibrate_bt_"+identifier).find(".action_calib").html("Press to end calibration of joystick "+identifier);
+        $(".calibrate_bt_"+identifier).find(".validate_calib").on('click', function(){
+            alert("lock calib");
+            sendSignal("");
+            resetCalibration(identifier);
+        });
+    }
+    function resetCalibration(identifier){
+        $(".calibrate_bt_"+identifier).find(".validate_calib").off();
+        $(".calibrate_bt_"+identifier).find(".calibrate_tool").addClass("hidden");
+        $(".calibrate_bt_"+identifier).find("button").removeClass("hidden");
+    }
+    
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     /////////////////////////////////////////// ON CLICK FUNCTION ////////////////////////////////////////////////////////////////////
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -871,5 +984,29 @@ $(document).ready(function(){
         }
         return newval;
     }
-        
+    
+   
+    $("#test_calib").on('click', function(){
+        sendSignal("002400806d68d7551407f09b861e3aad000549a8440800000000062d4000550300000000");    
+    });
+    $("#test_calib2").on('click', function(){
+        sendSignal("002400806d68d7551407f09b861e3aad000549a8440800000000062d4020540100000000");    
+    });
+    $("#test_calib3").on('click', function(){
+        sendSignal("002400806d68d7551407f09b861e3aad000549a8440800000000062d401f540100000000");    
+    });
+    $("#test_calib4").on('click', function(){
+        sendSignal("002400806d68d7551407f09b861e3aad000549a8440800000000062d4022540100000000");    
+    });
+    $("#test_calib5").on('click', function(){
+        sendSignal("002400806d68d7551407f09b861e3aad000549a8440800000000062d401f540100000000");    
+    });
+    $("#test_calib6").on('click', function(){
+        sendSignal("002400806d68d7551407f09b861e3aad000549a8440800000000062d4021540100000000");    
+    });
+    $("#test_calib7").on('click', function(){
+        sendSignal("002400806d68d7551407f09b861e3aad000549a8440800000000062d4000550100000000");    
+    });
+    
+    
 });

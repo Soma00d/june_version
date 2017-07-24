@@ -12,6 +12,50 @@
         
     </p>
     
+    <div>
+        <div>FIRMWARE UPLOAD</div>
+        <div class="testing_upl">
+            <input type="file" id="fileinput" /><br><br>
+            <div class="content_upl"></div>
+            <script type="text/javascript">
+              function readSingleFile(evt) {
+                //Retrieve the first (and only!) File from the FileList object
+                var f = evt.target.files[0]; 
+
+                if (f) {
+                  var r = new FileReader();
+                  r.onload = function(e) { 
+                          var contents = e.target.result;
+                          var arrayOfLines = contents.split("\n");
+                    $(".testing_upl .content_upl").html( "File is read.<br/>" 
+                          +"name: " + f.name + "<br/>"
+                          +"type: " + f.type + "<br/>"
+                          +"size: " + f.size + " bytes<br/><br>"
+                          //+ "1st line " + contents.substr(1, contents.indexOf("\n"))
+                           +"<b>1 :</b> " + arrayOfLines[0] +"<br/>"
+                           +"<b>2 : </b>" + arrayOfLines[1] +"<br/>"
+                           +"<b>3 : </b>" + arrayOfLines[2] +"<br/>"
+                           +"<b>4 : </b>" + arrayOfLines[3] +"<br/>"
+                           +"<b>5 : </b>" + arrayOfLines[4] +"<br/>"
+                           +"<b>6 : </b>" + arrayOfLines[5] +"<br/>"
+                           +"<b>7 : </b>" + arrayOfLines[6] +"<br/>"
+                           +"<b>8 : </b>" + arrayOfLines[7] +"<br/>"
+                           +"<b>9 : </b>" + arrayOfLines[8] +"<br/>"
+                           +"<b>10 : </b>" + arrayOfLines[9] +"<br/>"
+                          
+                    );  
+                  }
+                  r.readAsText(f);
+                } else { 
+                  alert("Failed to load file");
+                }
+              }
+
+              document.getElementById('fileinput').addEventListener('change', readSingleFile, false);
+            </script>
+        </div>
+    </div>
+    
 
     <!-- ui-dialog spybox -->
     <div id="dialog-spybox" title="Spy Box">

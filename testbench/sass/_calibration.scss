@@ -28,20 +28,29 @@
         font-size: 30px;
         text-align: center;
     }
-    
+    .jauge_container_global{
+        text-align:center;
+    }
     .canvas_jauge{
         position: relative;
-        width: 435px;
+        width: 235px;
         height: 500px;
         margin-left: auto;
         margin-right: auto;
+        display: inline-block;
+        vertical-align: top;
+        margin:30px;
+        .title_jauge{
+            font-weight: bold;
+            font-size: 26px;
+        }
         
         #jauge_joystick_horizontal_left{
             position: absolute;
             left: 0px;
-            top: 201px;
+            top: 132px;
             .jauge_container{
-                width: 200px;
+                width: 100px;
                 height: 30px;
                 border: 1px solid black;
                 background:yellowgreen;
@@ -55,10 +64,10 @@
         }
         #jauge_joystick_horizontal_right{
             position: absolute;
-            left: 232px;
-            top: 201px;
+            left: 132px;
+            top: 132px;
             .jauge_container{
-                width: 200px;
+                width: 100px;
                 height: 30px;
                 border: 1px solid black;
                 background:white;
@@ -72,9 +81,9 @@
         }
         #jauge_joystick_vertical_top{
             position: absolute;
-            left: 201px;
+            left: 101px;
             .jauge_container{
-                height: 200px;
+                height: 100px;
                 width: 30px;
                 border: 1px solid black;
                 background:yellowgreen;
@@ -88,10 +97,10 @@
         }
         #jauge_joystick_vertical_bot{
             position: absolute;
-            left: 201px;
-            top:272px;
+            left: 101px;
+            top:203px;
             .jauge_container{
-                height: 200px;
+                height: 100px;
                 width: 30px;
                 border: 1px solid black;
                 background:white;
@@ -106,11 +115,191 @@
                 margin-top:6px;
             }
         }
+        
+        
+        #jauge_joystick_horizontal_left_2{
+            position: absolute;
+            left: 0px;
+            top: 132px;
+            .jauge_container{
+                width: 100px;
+                height: 30px;
+                border: 1px solid black;
+                background:yellowgreen;
+                box-shadow: -2px 0px 5px 0px grey;
+            }
+            .jauge_remplissage{
+                width:100%;
+                height: 30px;
+                background:white;
+            }
+        }
+        #jauge_joystick_horizontal_right_2{
+            position: absolute;
+            left: 132px;
+            top: 132px;
+            .jauge_container{
+                width: 100px;
+                height: 30px;
+                border: 1px solid black;
+                background:white;
+                box-shadow: 2px 0px 5px 0px grey;
+            }
+            .jauge_remplissage{
+                width:0%;
+                height: 30px;
+                background:yellowgreen;
+            }
+        }
+        #jauge_joystick_vertical_top_2{
+            position: absolute;
+            left: 101px;
+            .jauge_container{
+                height: 100px;
+                width: 30px;
+                border: 1px solid black;
+                background:yellowgreen;
+                box-shadow: 0px -2px 5px 0px grey;
+            }
+            .jauge_remplissage{
+                height:100%;
+                width: 30px;
+                background:white;
+            }
+        }
+        #jauge_joystick_vertical_bot_2{
+            position: absolute;
+            left: 101px;
+            top:203px;
+            .jauge_container{
+                height: 100px;
+                width: 30px;
+                border: 1px solid black;
+                background:white;
+                box-shadow: 0px 2px 5px 0px grey;
+            }
+            .jauge_remplissage{
+                height:0%;
+                width: 30px;
+                background:yellowgreen;
+            }
+            .informations{
+                margin-top:6px;
+            }
+        }
+        
+        #jauge_joystick_horizontal_left_3{
+            position: absolute;
+            left: 0px;
+            top: 132px;
+            .jauge_container{
+                width: 100px;
+                height: 30px;
+                border: 1px solid black;
+                background:yellowgreen;
+                box-shadow: -2px 0px 5px 0px grey;
+            }
+            .jauge_remplissage{
+                width:100%;
+                height: 30px;
+                background:white;
+            }
+        }
+        #jauge_joystick_horizontal_right_3{
+            position: absolute;
+            left: 132px;
+            top: 132px;
+            .jauge_container{
+                width: 100px;
+                height: 30px;
+                border: 1px solid black;
+                background:white;
+                box-shadow: 2px 0px 5px 0px grey;
+            }
+            .jauge_remplissage{
+                width:0%;
+                height: 30px;
+                background:yellowgreen;
+            }
+        }
+        #jauge_joystick_vertical_top_3{
+            position: absolute;
+            left: 101px;
+            .jauge_container{
+                height: 100px;
+                width: 30px;
+                border: 1px solid black;
+                background:yellowgreen;
+                box-shadow: 0px -2px 5px 0px grey;
+            }
+            .jauge_remplissage{
+                height:100%;
+                width: 30px;
+                background:white;
+            }
+        }
+        #jauge_joystick_vertical_bot_3{
+            position: absolute;
+            left: 101px;
+            top:203px;
+            .jauge_container{
+                height: 100px;
+                width: 30px;
+                border: 1px solid black;
+                background:white;
+                box-shadow: 0px 2px 5px 0px grey;
+            }
+            .jauge_remplissage{
+                height:0%;
+                width: 30px;
+                background:yellowgreen;
+            }
+            .informations{
+                margin-top:6px;
+            }
+        }
+        
+        .calibrate_bt_1, .calibrate_bt_2, .calibrate_bt_3{
+            position:absolute;
+            margin:auto;
+            left:0;
+            right:0;
+            top:350px;
+            .calibrate_tool{
+                border: 3px solid #3b73b9;
+                border-radius: 5px;
+                padding: 5px;
+            }
+            .status_calib{
+                color: #3b73b9;
+                font-weight: bold;
+                font-size: 21px;
+                margin-bottom: 10px;
+            }
+            .action_calib{
+                font-size:18px;
+            }
+            .validate_calib{
+                margin-top: 10px;
+                background: #3b73b9;
+                color: white;
+                font-size: 18px;
+                width: 100px;
+                height: 30px;
+                border-radius: 5px;
+                box-shadow: 1px 1px 1px black;
+                padding-top: 8px;
+                cursor: pointer;
+                margin-left: auto;
+                margin-right: auto;
+                margin-bottom: 10px;
+            }
+        }
     }
     
     
     .informations{
-        width: 200px;
+        width: 100px;
         margin-bottom: 10px;
         height: 15px;
         margin-top: 15px;

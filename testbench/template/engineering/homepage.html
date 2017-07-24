@@ -2,20 +2,29 @@
     <div class="title title_main">Welcome Engineering mode!</div>
     <div class="bloc_container">
         <div class="bloc">
-            <div class="title_bloc">TSUI Informations</div>
+            <div class="title_bloc">Informations</div>
             <div class="info_bloc">
                 User SSO : 
                 <span class="input_zone blue">
                     <input id="user_sso_input_E" class="inp1" type="text" value="" placeholder="User SSO"/>
                 </span><br>
-                Part Number : 
+                Family :
                 <span class="input_zone blue">
-                    <input id="part_number_input_E" class="inp2" type="text" value="" placeholder="Part number"/>
+                    <select id="family_input_E">
+                        <option selected="selected">ELEGANCE</option>
+                        <option>OMEGA</option>
+                    </select>
                 </span><br>
-                Serial Number : 
+                Model :
                 <span class="input_zone blue">
-                    <input id="serial_number_input_E" class="inp3" type="text" value="" placeholder="Serial Number"/>
+                    <select id="model_input_E">
+                        <option selected="selected">TSSC</option>
+                        <option>SMART BOX</option>
+                        <option>SMART HANDLE</option>
+                    </select>
                 </span><br>
+                <div id="family_choice" class="hidden"></div>
+                <div id="model_choice" class="hidden"></div>
             </div>
             <div class="bouton_grey" id="send_info_hp_E">
                 Send
@@ -45,3 +54,24 @@
         
     </div>
 </div>
+
+<script>
+$( "#family_input_E" )
+  .change(function() {
+    var str = "";
+    $( "#family_input_E option:selected" ).each(function() {
+      str += $( this ).text() + " ";
+    });
+    $( "#family_choice" ).text( str );
+  })
+  .trigger( "change" );
+$( "#model_input_E" )
+  .change(function() {
+    var str = "";
+    $( "#model_input_E option:selected" ).each(function() {
+      str += $( this ).text() + " ";
+    });
+    $( "#model_choice" ).text( str );
+  })
+  .trigger( "change" );
+</script>
