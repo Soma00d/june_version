@@ -28,6 +28,105 @@
         font-size: 30px;
         text-align: center;
     }
+    .toolbox_calibration{
+        text-align:center;
+    }
+    .get_config{
+        text-align: center;
+        background: #f2f2f2;
+        padding: 10px;
+        width: 250px;
+        border-radius: 5px;
+        border: 2px solid black;
+        display: inline-block;
+        vertical-align: top;
+        height: 128px;
+        .bt_get_config{
+            margin-bottom: 10px;
+        }
+        .config_info{
+            text-align: left;
+            .text_config{
+                font-weight:bold;
+            }
+        }        
+    }
+    .realtime_joysticks_val{
+        text-align: center;
+        background: #f2f2f2;
+        padding: 10px;
+        width: 250px;
+        border-radius: 5px;
+        border: 2px solid black;
+        display: inline-block;
+        vertical-align: top;
+        margin-left: 50px;
+        height: 128px;
+        .current_joystick{
+            font-weight:bold;
+        }
+        .bloc_left_joy{
+            text-align: left;
+            display: inline-block;
+            vertical-align: top;
+            margin-right: 10px;
+            border-right: 1px solid black;
+            width:100px;
+        }
+        .bloc_right_joy{
+            text-align: left;
+            display: inline-block;
+            vertical-align: top;
+            width:100px;
+        }
+    }
+    .download_tool{
+        text-align: center;
+        background: #f2f2f2;
+        padding: 10px;
+        width: 500px;
+        border-radius: 5px;
+        border: 2px solid black;
+        display: inline-block;
+        vertical-align: top;
+        margin-left: 50px;
+        .title_download{
+            font-weight:bold;
+            margin-bottom:10px;
+        }
+        .content_upl{
+            text-align:left;
+            margin-top: -12px;
+            span{
+                color:green;
+                font-weight:bold;
+            }
+        }
+        .start_download{
+            border: 1px solid black;
+            background: #3b73b9;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 8px;
+            width: 122px;
+            box-shadow: 1px 1px 1px black;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .stop_download{
+            border: 1px solid black;
+            background: red;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 8px;
+            width: 122px;
+            box-shadow: 1px 1px 1px black;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
     .jauge_container_global{
         text-align:center;
     }

@@ -27,21 +27,21 @@
                   r.onload = function(e) { 
                           var contents = e.target.result;
                           var arrayOfLines = contents.split("\n");
-                    $(".testing_upl .content_upl").html( "File is read.<br/>" 
-                          +"name: " + f.name + "<br/>"
-                          +"type: " + f.type + "<br/>"
-                          +"size: " + f.size + " bytes<br/><br>"
+                    $(".testing_upl .content_upl").html( "File is read. " 
+                          +"<b>name</b>: " + f.name + " <br> "
+                          +"<b>type</b>: " + f.type + " | "
+                          +"<b>size</b>: " + f.size + " bytes"
                           //+ "1st line " + contents.substr(1, contents.indexOf("\n"))
-                           +"<b>1 :</b> " + arrayOfLines[0] +"<br/>"
-                           +"<b>2 : </b>" + arrayOfLines[1] +"<br/>"
-                           +"<b>3 : </b>" + arrayOfLines[2] +"<br/>"
-                           +"<b>4 : </b>" + arrayOfLines[3] +"<br/>"
-                           +"<b>5 : </b>" + arrayOfLines[4] +"<br/>"
-                           +"<b>6 : </b>" + arrayOfLines[5] +"<br/>"
-                           +"<b>7 : </b>" + arrayOfLines[6] +"<br/>"
-                           +"<b>8 : </b>" + arrayOfLines[7] +"<br/>"
-                           +"<b>9 : </b>" + arrayOfLines[8] +"<br/>"
-                           +"<b>10 : </b>" + arrayOfLines[9] +"<br/>"
+//                           +"<b>1 :</b> " + arrayOfLines[0] +"<br/>"
+//                           +"<b>2 : </b>" + arrayOfLines[1] +"<br/>"
+//                           +"<b>3 : </b>" + arrayOfLines[2] +"<br/>"
+//                           +"<b>4 : </b>" + arrayOfLines[3] +"<br/>"
+//                           +"<b>5 : </b>" + arrayOfLines[4] +"<br/>"
+//                           +"<b>6 : </b>" + arrayOfLines[5] +"<br/>"
+//                           +"<b>7 : </b>" + arrayOfLines[6] +"<br/>"
+//                           +"<b>8 : </b>" + arrayOfLines[7] +"<br/>"
+//                           +"<b>9 : </b>" + arrayOfLines[8] +"<br/>"
+//                           +"<b>10 : </b>" + arrayOfLines[9] +"<br/>"
                           
                     );  
                   }
